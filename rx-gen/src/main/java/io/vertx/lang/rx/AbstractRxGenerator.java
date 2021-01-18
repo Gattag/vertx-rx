@@ -583,10 +583,6 @@ public abstract class AbstractRxGenerator extends Generator<ClassModel> {
     }
   }
 
-  protected String genFutureMethodName(MethodInfo method) {
-    return "rx" + Character.toUpperCase(method.getName().charAt(0)) + method.getName().substring(1);
-  }
-
   protected final void genSimpleMethod(String visibility, ClassModel model, MethodInfo method, List<String> cacheDecls, boolean genBody, PrintWriter writer) {
     ClassTypeInfo type = model.getType();
     startMethodTemplate(visibility, type, method, "", writer);

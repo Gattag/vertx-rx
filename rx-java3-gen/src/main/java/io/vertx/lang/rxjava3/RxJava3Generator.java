@@ -265,7 +265,6 @@ class RxJava3Generator extends AbstractRxGenerator {
   }
 
   private MethodInfo genFutureMethod(MethodInfo method) {
-    String futMethodName = genFutureMethodName(method);
     List<ParamInfo> futParams = new ArrayList<>();
     int count = 0;
     int size = method.getParams().size() - 1;
@@ -286,6 +285,6 @@ class RxJava3Generator extends AbstractRxGenerator {
     } else {
       futReturnType = new io.vertx.codegen.type.ParameterizedTypeInfo(io.vertx.codegen.type.TypeReflectionFactory.create(io.reactivex.rxjava3.core.Single.class).getRaw(), false, Collections.singletonList(futType));
     }
-    return method.copy().setName(futMethodName).setReturnType(futReturnType).setParams(futParams);
+    return method.copy().setReturnType(futReturnType).setParams(futParams);
   }
 }

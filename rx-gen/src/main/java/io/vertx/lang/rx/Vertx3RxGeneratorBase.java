@@ -35,6 +35,10 @@ public abstract class Vertx3RxGeneratorBase extends AbstractRxGenerator {
     }
   }
 
+  protected final String genFutureMethodName(MethodInfo method) {
+    return "rx" + Character.toUpperCase(method.getName().charAt(0)) + method.getName().substring(1);
+  }
+
   private void genMethod(ClassModel model, MethodInfo method, List<String> cacheDecls, boolean genBody, PrintWriter writer) {
     if (method.getKind() == MethodKind.FUTURE) {
       // Generate 3 methods
